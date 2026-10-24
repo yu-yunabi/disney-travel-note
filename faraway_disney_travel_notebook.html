@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f2e9f0">
+<title>遠方組の Disney旅ノート</title>
+<style>
+:root{--ink:#665367;--muted:#887a89;--pink:#f2e9f0;--line:#eadfe8;--green:#8eab9b;--paper:#fffdfd;--soft:#faf5f8}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f7f0f5 0,#fffdfd 330px);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#403744;line-height:1.55}
+main{max-width:720px;margin:auto;padding:16px 14px 40px}.hero{background:#f0e5ef;border:1px solid #e8dce8;border-radius:24px;padding:24px 20px;margin-bottom:16px;color:var(--ink);position:relative;overflow:hidden}.eyebrow{font-size:11px;letter-spacing:.18em;font-weight:700;color:#907a91}.hero h1{font-size:27px;line-height:1.25;margin:10px 0}.hero p{margin:0;color:#806d81;font-size:13px}.sparkle{position:absolute;right:17px;top:18px;font-size:28px;opacity:.7}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.tab{border:0;border-radius:13px;padding:12px 5px;background:#f4eef3;color:#766779;font-weight:700;font-size:12px}.tab.active{background:#dfcfe0;color:#5f4964}
+.panel,.card{background:white;border:1px solid var(--line);border-radius:18px;padding:17px;margin:12px 0}.panel h2{font-size:18px;color:var(--ink);margin:0 0 14px}.field{margin:12px 0}.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:5px}input,select,textarea{width:100%;font:inherit;font-size:16px;padding:11px 12px;border:1px solid #e4d9e4;border-radius:11px;background:#fff;color:#403744}textarea{min-height:90px;resize:vertical}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.buttons{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:700;background:#e9dce9;color:#624f67;font-size:13px}.btn.primary{background:#8eab9b;color:white}.btn.ghost{background:#f8f2f7;color:#78677b}.small{font-size:11px;color:#8b7e8b}.status{font-size:12px;color:#668b77;min-height:18px;margin-top:8px}.item{display:flex;gap:9px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #f0e8ef}.item:last-child{border-bottom:0}.item input[type=checkbox]{width:19px;height:19px;margin-top:3px;accent-color:#8eab9b;flex-shrink:0}.item .itemtext{flex:1;min-width:0}.item .itemtext input{padding:8px;font-size:14px}.item .itemtext .note{margin-top:6px}.remove{border:0;background:transparent;color:#a18da3;font-size:20px;padding:0 5px}.time{width:105px;flex-shrink:0}.taskrow{display:flex;gap:8px}.taskrow input{flex:1;min-width:0}.progress{height:6px;background:#f0e9ef;border-radius:99px;overflow:hidden;margin:9px 0 14px}.progress span{display:block;height:100%;background:var(--green);width:0}.hidden{display:none!important}.footer{text-align:center;font-size:11px;color:#998b99;padding:18px 5px}.warning{background:#fff8e9;border:1px solid #f0e2bf;border-radius:12px;padding:11px;font-size:12px;color:#79694c;margin-top:12px}
+@media(max-width:440px){.hero h1{font-size:24px}.grid{grid-template-columns:1fr}.panel{padding:14px}.time{width:88px}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+<div class="eyebrow">FARAWAY DISNEY · TRAVEL PLANNER</div><div class="sparkle">✧</div>
+<h1>わたしの<br>Disney旅ノート</h1>
+<p>いつかの夢も、もうすぐの旅行も。<br>楽しみをひとつずつ形にしよう。</p>
+</header>
+<nav class="tabs" aria-label="計画メニュー">
+<button class="tab active" data-tab="trip">♡ 旅行情報</button>
+<button class="tab" data-tab="schedule">◷ 時間割</button>
+<button class="tab" data-tab="tasks">✓ 準備リスト</button>
+</nav>
+<section id="trip" class="panel">
+<h2>旅行の基本情報</h2>
+<div class="field"><label for="style">旅行スタイル</label><select id="style"><option>家族旅行</option><option>カップル旅行</option><option>友達との旅行</option><option>ひとり旅</option></select></div>
+<div class="field"><label for="destination">行き先</label><select id="destination"><option>東京ディズニーランド</option><option>東京ディズニーシー</option><option>ランド＆シー両方</option></select></div>
+<div class="grid">
+<div class="field"><label for="date">出発日</label><input id="date" type="date"></div>
+<div class="field"><label for="duration">旅行日数</label><select id="duration"><option>日帰り</option><option selected>1泊2日</option><option>2泊3日</option><option>3泊以上</option></select></div>
+</div>
+<div class="field"><label for="people">参加人数</label><input id="people" placeholder="例：大人2人・子ども1人"></div>
+<div class="field"><label for="hotel">ホテル名・候補</label><input id="hotel" placeholder="まだ決まっていなくてもOK"></div>
+<div class="grid">
+<div class="field"><label for="transport">交通手段</label><select id="transport"><option>飛行機</option><option>新幹線・電車</option><option>車</option><option>バス</option><option>未定</option></select></div>
+<div class="field"><label for="budget">予算（円）</label><input id="budget" type="number" min="0" placeholder="例：150000"></div>
+</div>
+<div class="field"><label for="memo">自由メモ</label><textarea id="memo" placeholder="行きたい場所、楽しみにしていることなど…"></textarea></div>
+<div class="buttons"><button class="btn primary" id="export">計画をバックアップ</button><button class="btn ghost" id="importBtn">バックアップを読み込む</button><input id="importFile" type="file" accept="application/json,.json" hidden></div>
+<p class="small">入力内容はこのブラウザ内に自動保存されます。</p><div id="status" class="status" aria-live="polite">この端末に自動保存します</div>
+</section>
+<section id="schedule" class="panel hidden">
+<h2>わくわく時間割</h2><p class="small">予定を追加・編集して、理想の1日を組み立てよう。</p>
+<div id="scheduleList"></div>
+<div class="card">
+<div class="grid"><div class="field"><label for="newTime">時間</label><input id="newTime" type="time" value="11:00"></div><div class="field"><label for="newPlace">予定</label><input id="newPlace" placeholder="例：パレード"></div></div>
+<div class="field"><label for="newNote">メモ</label><input id="newNote" placeholder="例：見る場所を決める"></div><button class="btn primary" id="addSchedule">＋ 時間割に追加</button>
+</div>
+</section>
+<section id="tasks" class="panel hidden">
+<h2>出発までの準備リスト</h2><div id="taskCount" class="small"></div><div class="progress"><span id="progressBar"></span></div><div id="taskList"></div>
+<div class="taskrow"><input id="newTask" placeholder="例：子どもの着替えを準備"><button class="btn primary" id="addTask">追加</button></div>
+</section>
+<div class="warning">保存について：同じ端末・同じブラウザで開いたときに続きから使えます。ブラウザのデータ削除、プライベートブラウズ、機種変更などで消える場合があります。大切な計画は「計画をバックアップ」でJSONファイルを保存してください。</div>
+<div class="footer">あなたらしいDisney旅行になりますように ✧<br>※非公式の旅行計画ツールです。東京ディズニーリゾートの公式サイトではありません。</div>
+</main>
+<script>
+const KEY='farawayDisneyTravelNotebook_v1';
+const defaultData={
+ style:'家族旅行',destination:'東京ディズニーランド',date:'',duration:'1泊2日',people:'大人2人・子ども1人',hotel:'',transport:'飛行機',budget:'150000',memo:'',
+ schedule:[
+ {time:'09:00',place:'パーク入園',note:'写真を撮る'},
+ {time:'10:00',place:'アトラクション',note:'乗りたいものを優先'},
+ {time:'12:00',place:'ランチ',note:'レストラン候補を決める'},
+ {time:'15:00',place:'おやつ・休憩',note:'無理せず楽しむ'},
+ {time:'19:00',place:'夜のパーク',note:'ショーや夜景を楽しむ'}],
+ tasks:[
+ {text:'チケットを確認する',done:false},
+ {text:'ホテルを決める',done:false},
+ {text:'交通手段を予約する',done:false},
+ {text:'レストランを調べる',done:false},
+ {text:'持ち物を準備する',done:false}]
+};
+let data=load();
+function load(){try{const saved=localStorage.getItem(KEY);return saved?({...structuredClone(defaultData),...JSON.parse(saved)}):structuredClone(defaultData)}catch(e){return structuredClone(defaultData)}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));document.getElementById('status').textContent='✓ 自動保存しました';}catch(e){document.getElementById('status').textContent='保存できませんでした。バックアップを利用してください。';}}
+function bindFields(){['style','destination','date','duration','people','hotel','transport','budget','memo'].forEach(id=>{const el=document.getElementById(id);el.value=data[id]??'';el.addEventListener('input',()=>{data[id]=el.value;save()});el.addEventListener('change',()=>{data[id]=el.value;save()})})}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderSchedule(){const root=document.getElementById('scheduleList');root.innerHTML='';data.schedule.forEach((p,i)=>{const el=document.createElement('div');el.className='item';el.innerHTML=`<div class="time"><input aria-label="予定の時間" type="time" value="${esc(p.time)}" data-i="${i}" data-k="time"></div><div class="itemtext"><input aria-label="予定名" value="${esc(p.place)}" placeholder="予定" data-i="${i}" data-k="place"><input class="note" aria-label="予定メモ" value="${esc(p.note)}" placeholder="メモ" data-i="${i}" data-k="note"></div><button class="remove" aria-label="予定を削除" data-remove="${i}">×</button>`;root.appendChild(el)});root.querySelectorAll('[data-k]').forEach(el=>el.addEventListener('input',()=>{data.schedule[+el.dataset.i][el.dataset.k]=el.value;save()}));root.querySelectorAll('[data-remove]').forEach(el=>el.addEventListener('click',()=>{data.schedule.splice(+el.dataset.remove,1);renderSchedule();save()}))}
+function renderTasks(){const root=document.getElementById('taskList');root.innerHTML='';data.tasks.forEach((t,i)=>{const el=document.createElement('div');el.className='item';el.innerHTML=`<input type="checkbox" aria-label="完了" data-check="${i}" ${t.done?'checked':''}><div class="itemtext"><input aria-label="準備項目" value="${esc(t.text)}" data-task="${i}" style="${t.done?'text-decoration:line-through;opacity:.65':''}"></div><button class="remove" aria-label="項目を削除" data-del="${i}">×</button>`;root.appendChild(el)});root.querySelectorAll('[data-check]').forEach(el=>el.addEventListener('change',()=>{data.tasks[+el.dataset.check].done=el.checked;renderTasks();save()}));root.querySelectorAll('[data-task]').forEach(el=>el.addEventListener('input',()=>{data.tasks[+el.dataset.task].text=el.value;save()}));root.querySelectorAll('[data-del]').forEach(el=>el.addEventListener('click',()=>{data.tasks.splice(+el.dataset.del,1);renderTasks();save()}));const done=data.tasks.filter(t=>t.done).length;document.getElementById('taskCount').textContent=`${done} / ${data.tasks.length} 完了`;document.getElementById('progressBar').style.width=(data.tasks.length?done/data.tasks.length*100:0)+'%'}
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('main section').forEach(s=>s.classList.toggle('hidden',s.id!==btn.dataset.tab))}));
+document.getElementById('addSchedule').addEventListener('click',()=>{const place=document.getElementById('newPlace').value.trim();if(!place)return;data.schedule.push({time:document.getElementById('newTime').value||'--:--',place,note:document.getElementById('newNote').value.trim()});data.schedule.sort((a,b)=>a.time.localeCompare(b.time));document.getElementById('newPlace').value='';document.getElementById('newNote').value='';renderSchedule();save()});
+document.getElementById('addTask').addEventListener('click',()=>{const el=document.getElementById('newTask');if(!el.value.trim())return;data.tasks.push({text:el.value.trim(),done:false});el.value='';renderTasks();save()});
+document.getElementById('export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='disney-travel-plan-backup.json';a.click();URL.revokeObjectURL(url);document.getElementById('status').textContent='バックアップファイルを保存しました'});
+document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const imported=JSON.parse(await f.text());if(!imported||!Array.isArray(imported.schedule)||!Array.isArray(imported.tasks))throw Error();data={...structuredClone(defaultData),...imported};bindRefresh();document.getElementById('status').textContent='バックアップを読み込みました';save()}catch(err){alert('このファイルは読み込めませんでした。旅行ノートのバックアップファイルを選んでください。')}e.target.value=''});
+function bindRefresh(){['style','destination','date','duration','people','hotel','transport','budget','memo'].forEach(id=>document.getElementById(id).value=data[id]??'');renderSchedule();renderTasks()}
+bindFields();renderSchedule();renderTasks();
+</script>
+</body>
+</html>
