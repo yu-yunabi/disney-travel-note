@@ -1,23 +1,79 @@
 <!doctype html>
+
 <html lang="ja">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Disney旅ノート</title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="theme-color" content="#f7e8ed">
+
+<meta name="description" content="家族のディズニー旅行を計画する淡色デザインの旅行ノート">
+
+<title>遠方組のディズニー旅行ノート｜新バージョン</title>
+
 <style>
-:root{--accent:#c995a6;--bg:#fbf6f0}*{box-sizing:border-box}body{font-family:-apple-system,sans-serif;max-width:680px;margin:auto;padding:16px;background:var(--bg);color:#594d4b}h1{text-align:center;font-size:24px}section{background:white;padding:15px;border-radius:16px;margin:12px 0}button,input,textarea{font:inherit;padding:10px;border:1px solid #e5d8d4;border-radius:10px;margin:3px}button{background:white;color:#594d4b}button.active{background:var(--accent);color:white}input,textarea{width:100%;margin:5px 0}textarea{min-height:65px}.row{display:flex;flex-wrap:wrap;gap:5px}.row button{flex:1}
+
+:root{--bg:#fffaf9;--paper:#fff;--ink:#594b4c;--muted:#8d7d7e;--accent:#d9a9b9;--soft:#f5e2e8;--line:#f0e4e5;--shadow:0 8px 24px #7d52610d}
+
+*{box-sizing:border-box}button,input,textarea,select{-webkit-tap-highlight-color:transparent}button{touch-action:manipulation}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.6}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.wrap{max-width:900px;margin:auto;padding:14px 12px 48px}.hero{background:linear-gradient(135deg,var(--soft),var(--bg));border:1px solid var(--line);border-radius:24px;padding:22px 18px;margin-bottom:14px}.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--muted);margin:0 0 6px}.hero h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:0 0 8px}.hero p{margin:0;color:var(--muted);font-size:13px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 10px}.tab{white-space:nowrap;background:#fff;border:1px solid var(--line);color:var(--ink);padding:10px 12px;border-radius:12px;font-size:13px}.tab.active{background:var(--soft);border-color:var(--accent);font-weight:700}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:13px;box-shadow:var(--shadow)}h2{font-size:16px;margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field-wrap{min-width:0}.field-wrap.full{grid-column:1/-1}label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.field{width:100%;min-width:0;border:1px solid var(--line);background:#fffdfd;border-radius:10px;padding:10px;color:var(--ink);font-size:16px}.hint{font-size:12px;color:var(--muted)}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grow{flex:1;min-width:0}.btn{background:var(--soft);color:var(--ink);padding:10px 12px;border-radius:11px;font-size:13px;font-weight:600}.btn.primary{background:var(--accent);color:#fff}.btn.ghost{background:#fff;border:1px solid var(--line)}.btn.danger,.remove{background:#fff0f0;color:#a35454}.daytabs{display:flex;gap:7px;overflow:auto;margin:10px 0 14px}.schedule{display:grid;gap:8px}.schedule-row{display:grid;grid-template-columns:82px minmax(0,1fr) 34px;gap:7px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fffdfd}.schedule-row input,.schedule-row textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px;color:var(--ink);background:#fff}.schedule-row textarea{min-height:43px;resize:vertical;margin-top:5px}.remove{border-radius:8px;padding:7px}.checklist{display:grid;gap:7px}.checkrow{display:flex;align-items:flex-start;gap:8px;padding:9px;border:1px solid var(--line);border-radius:10px}.checkrow input{margin-top:5px;accent-color:var(--accent)}.checkrow span{flex:1;min-width:0}.checkrow.done span{text-decoration:line-through;color:#a99b9b}.swatches{display:flex;gap:9px;flex-wrap:wrap}.swatch{width:34px;height:34px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 1px #ddd}.swatch.selected{box-shadow:0 0 0 2px var(--ink)}.divider{height:1px;background:var(--line);margin:14px 0}.status{font-size:12px;color:#557b59;min-height:18px}.hidden{display:none!important}.budget-line{display:grid;grid-template-columns:minmax(0,1fr) 120px 32px;gap:7px;margin-bottom:8px}.budget-total{font-size:20px;font-weight:700;color:var(--ink)}.itinerary-day{padding:12px 0;border-bottom:1px solid var(--line);break-inside:avoid}.itinerary-day:last-child{border-bottom:0}.itinerary-day h3{font-size:15px;margin:0 0 6px}.itinerary-day p{margin:4px 0;font-size:13px}.footer{text-align:center;color:var(--muted);font-size:11px;padding:12px}
+
+@media(max-width:520px){.wrap{padding:10px 9px 35px}.panel{padding:12px}.grid{grid-template-columns:1fr}.field-wrap.full{grid-column:auto}.schedule-row{grid-template-columns:73px minmax(0,1fr) 30px;gap:5px;padding:7px}.budget-line{grid-template-columns:minmax(0,1fr) 95px 30px}.btn{padding:9px 10px}}
+
+@media print{body{background:#fff}.wrap{max-width:none;padding:0}.hero,.panel{box-shadow:none;break-inside:avoid}.tabs,.no-print,.btn,.remove{display:none!important}.panel{border:1px solid #ddd}.hidden{display:block!important}#plannerApp{display:none!important}#printView{display:block!important}.itinerary-day{break-inside:avoid}}
+
 </style>
+
 </head>
+
 <body>
-<h1>𖧷 Disney 旅ノート 𖧷</h1>
-<p style="text-align:center">遠方組の思いを馳せるインパプラン</p>
-<section><b>テーマカラー</b><div class="row"><button onclick="theme('#c995a6','#fbf6f0')">淡色ピンク</button><button onclick="theme('#b69a7d','#f8f2e8')">ベージュ</button><button onclick="theme('#8eafc0','#f0f6f8')">ブルー</button><button onclick="theme('#94ad9a','#f1f6f0')">グリーン</button></div></section>
-<section><div id="days" class="row"></div><button onclick="addDay()">＋ 日程を追加</button><label>日程名</label><input id="dayname" onchange="current().name=this.value;save();drawDays()"><b>行き先</b><div class="row"><button onclick="setPlace('🏰 ランド')">🏰 ランド</button><button onclick="setPlace('🌎 シー')">🌎 シー</button><button onclick="setPlace('🏨 ホテル')">🏨 ホテル</button><button onclick="setPlace('🚃 移動')">🚃 移動</button></div><p id="place"></p><label>日付</label><input id="date" placeholder="例：2027年12月10日" oninput="current().date=this.value;save()"><label>メモ</label><textarea id="memo" placeholder="予約・やりたいことなど" oninput="current().memo=this.value;save()"></textarea></section>
-<section><h3>⏰ 時間割</h3><div id="plans"></div><button onclick="addPlan()">＋ 予定を追加</button></section>
-<section><h3>🎒 準備リスト</h3><div id="items"></div><div class="row"><input id="newitem" placeholder="持ち物を追加"><button onclick="addItem()">追加</button></div></section>
-<script>
-const KEY='disney-note-v3';let data;try{data=JSON.parse(localStorage.getItem(KEY))}catch(e){}if(!data||!data.days)data={days:[day('1日目'),day('2日目')],current:0,items:[{text:'チケット',done:false},{text:'モバイルバッテリー',done:false},{text:'子どもの着替え',done:false}]};
-function day(name){return{name,place:'🏰 ランド',date:'',memo:'',plans:[{time:'08:00',text:'到着・入園'}]}}function current(){return data.days[data.current]}function save(){localStorage.setItem(KEY,JSON.stringify(data))}function theme(a,b){document.documentElement.style.setProperty('--accent',a);document.documentElement.style.setProperty('--bg',b)}function drawDays(){let d=document.getElementById('days');d.innerHTML='';data.days.forEach((x,i)=>{let b=document.createElement('button');b.textContent=x.name;b.className=i===data.current?'active':'';b.onclick=()=>{data.current=i;draw()};d.append(b)})}function draw(){drawDays();let d=current();document.getElementById('dayname').value=d.name;document.getElementById('place').textContent=d.place;document.getElementById('date').value=d.date;document.getElementById('memo').value=d.memo;let p=document.getElementById('plans');p.innerHTML='';d.plans.forEach((x,i)=>{let t=document.createElement('input');t.placeholder='時間';t.value=x.time;t.oninput=()=>{x.time=t.value;save()};let v=document.createElement('input');v.placeholder='予定';v.value=x.text;v.oninput=()=>{x.text=v.value;save()};let del=document.createElement('button');del.textContent='削除';del.onclick=()=>{d.plans.splice(i,1);save();draw()};p.append(t,v,del)});let items=document.getElementById('items');items.innerHTML='';data.items.forEach((x,i)=>{let line=document.createElement('div');let cb=document.createElement('input');cb.type='checkbox';cb.checked=x.done;cb.style.width='auto';cb.onchange=()=>{x.done=cb.checked;save()};let span=document.createElement('span');span.textContent=x.text;let del=document.createElement('button');del.textContent='×';del.onclick=()=>{data.items.splice(i,1);save();draw()};line.append(cb,span,del);items.append(line)});save()}function addDay(){data.days.push(day((data.days.length+1)+'日目'));data.current=data.days.length-1;draw()}function setPlace(p){current().place=p;draw()}function addPlan(){current().plans.push({time:'',text:''});draw()}function addItem(){let n=document.getElementById('newitem'),v=n.value.trim();if(v){data.items.push({text:v,done:false});n.value='';save();draw()}}draw();
-</script>
-</body>
-</html>
+
+<main class="wrap">
+
+<header class="hero"><p class="eyebrow">FARAWAY DISNEY · TRAVEL PLANNER</p><h1 id="pageTitle">わが家のディズニー旅行ノート ✨</h1><p>遠方からの旅を、わが家らしいペースで少しずつ計画しよう。</p></header>
+
+<div id="plannerApp">
+
+<nav class="tabs no-print" id="mainTabs" aria-label="旅行ノートのメニュー">
+
+<button type="button" class="tab active" data-view="overview">♡ 旅行情報</button><button type="button" class="tab" data-view="days">📅 日程・時間割</button><button type="button" class="tab" data-view="hotel">🏨 ホテル</button><button type="button" class="tab" data-view="transport">🚃 移動</button><button type="button" class="tab" data-view="budget">💰 予算</button><button type="button" class="tab" data-view="tasks">✓ 準備リスト</button><button type="button" class="tab" data-view="settings">🎨 保存・設定</button>
+
+</nav>
+
+<section class="panel view" id="overview">
+
+<h2>旅行の基本情報</h2><div class="grid">
+
+<div class="field-wrap full"><label for="tripTitle">旅行タイトル</label><input class="field" id="tripTitle" placeholder="例：家族でクリスマスディズニー"></div>
+
+<div class="field-wrap"><label for="tripStyle">旅行スタイル</label><select class="field" id="tripStyle"><option>家族旅行</option><option>カップル旅行</option><option>友達との旅行</option><option>ひとり旅</option></select></div>
+
+<div class="field-wrap"><label for="people">参加人数</label><input class="field" id="people" placeholder="例：大人2人・子ども1人"></div>
+
+<div class="field-wrap"><label for="startDate">出発日</label><input class="field" id="startDate" type="date"></div>
+
+<div class="field-wrap"><label for="endDate">帰宅日</label><input class="field" id="endDate" type="date"></div>
+
+<div class="field-wrap full"><label for="tripMemo">旅行全体のメモ</label><textarea class="field" id="tripMemo" rows="3" placeholder="楽しみにしていること、気をつけたいことなど"></textarea></div>
+
+</div><p class="hint">入力内容はこのブラウザに自動保存されるよ。大切な計画は定期的にバックアップしてね。</p>
+
+</section>
+
+<section class="panel view hidden" id="days">
+
+<div class="row" style="justify-content:space-between"><h2>日程・時間割</h2><button type="button" class="btn primary" id="addDay">＋ 日程を追加</button></div>
+
+<div class="daytabs" id="dayTabs"></div>
+
+<div class="grid">
+
+<div class="field-wrap"><label for="dayName">タブ名</label><input class="field" id="dayName" placeholder="例：1日目"></div>
+
+<div class="field-wrap"><label for="dayDate">日付</label><input class="field" id="dayDate" type="date"></div>
+
+<div class="field-wrap full"><label for="dayPlace">この日の行き先</label><select class="field" id="dayPlace"><option>移動・ホテル</option><option>東京ディズニーランド</option><option>東京ディズニーシー</option><option>ランド＆シー</option><option>自由行動・その他</option></select></div>
+
+</div><div class="row" style="margin:10px 0 14px"><button type="button" class="btn ghost" id="renameDay">タブ名を反映</button><button type="button" class="btn danger" id="deleteDay">この日を削除</button></div>
