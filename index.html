@@ -1,79 +1,366 @@
+
 <!doctype html>
-
 <html lang="ja">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-
-<meta name="theme-color" content="#f7e8ed">
-
-<meta name="description" content="家族のディズニー旅行を計画する淡色デザインの旅行ノート">
-
-<title>遠方組のディズニー旅行ノート｜新バージョン</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>遠方ディズニー 旅のしおり</title>
 <style>
-
-:root{--bg:#fffaf9;--paper:#fff;--ink:#594b4c;--muted:#8d7d7e;--accent:#d9a9b9;--soft:#f5e2e8;--line:#f0e4e5;--shadow:0 8px 24px #7d52610d}
-
-*{box-sizing:border-box}button,input,textarea,select{-webkit-tap-highlight-color:transparent}button{touch-action:manipulation}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.6}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.wrap{max-width:900px;margin:auto;padding:14px 12px 48px}.hero{background:linear-gradient(135deg,var(--soft),var(--bg));border:1px solid var(--line);border-radius:24px;padding:22px 18px;margin-bottom:14px}.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--muted);margin:0 0 6px}.hero h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:0 0 8px}.hero p{margin:0;color:var(--muted);font-size:13px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 10px}.tab{white-space:nowrap;background:#fff;border:1px solid var(--line);color:var(--ink);padding:10px 12px;border-radius:12px;font-size:13px}.tab.active{background:var(--soft);border-color:var(--accent);font-weight:700}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:13px;box-shadow:var(--shadow)}h2{font-size:16px;margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field-wrap{min-width:0}.field-wrap.full{grid-column:1/-1}label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.field{width:100%;min-width:0;border:1px solid var(--line);background:#fffdfd;border-radius:10px;padding:10px;color:var(--ink);font-size:16px}.hint{font-size:12px;color:var(--muted)}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grow{flex:1;min-width:0}.btn{background:var(--soft);color:var(--ink);padding:10px 12px;border-radius:11px;font-size:13px;font-weight:600}.btn.primary{background:var(--accent);color:#fff}.btn.ghost{background:#fff;border:1px solid var(--line)}.btn.danger,.remove{background:#fff0f0;color:#a35454}.daytabs{display:flex;gap:7px;overflow:auto;margin:10px 0 14px}.schedule{display:grid;gap:8px}.schedule-row{display:grid;grid-template-columns:82px minmax(0,1fr) 34px;gap:7px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fffdfd}.schedule-row input,.schedule-row textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px;color:var(--ink);background:#fff}.schedule-row textarea{min-height:43px;resize:vertical;margin-top:5px}.remove{border-radius:8px;padding:7px}.checklist{display:grid;gap:7px}.checkrow{display:flex;align-items:flex-start;gap:8px;padding:9px;border:1px solid var(--line);border-radius:10px}.checkrow input{margin-top:5px;accent-color:var(--accent)}.checkrow span{flex:1;min-width:0}.checkrow.done span{text-decoration:line-through;color:#a99b9b}.swatches{display:flex;gap:9px;flex-wrap:wrap}.swatch{width:34px;height:34px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 1px #ddd}.swatch.selected{box-shadow:0 0 0 2px var(--ink)}.divider{height:1px;background:var(--line);margin:14px 0}.status{font-size:12px;color:#557b59;min-height:18px}.hidden{display:none!important}.budget-line{display:grid;grid-template-columns:minmax(0,1fr) 120px 32px;gap:7px;margin-bottom:8px}.budget-total{font-size:20px;font-weight:700;color:var(--ink)}.itinerary-day{padding:12px 0;border-bottom:1px solid var(--line);break-inside:avoid}.itinerary-day:last-child{border-bottom:0}.itinerary-day h3{font-size:15px;margin:0 0 6px}.itinerary-day p{margin:4px 0;font-size:13px}.footer{text-align:center;color:var(--muted);font-size:11px;padding:12px}
-
-@media(max-width:520px){.wrap{padding:10px 9px 35px}.panel{padding:12px}.grid{grid-template-columns:1fr}.field-wrap.full{grid-column:auto}.schedule-row{grid-template-columns:73px minmax(0,1fr) 30px;gap:5px;padding:7px}.budget-line{grid-template-columns:minmax(0,1fr) 95px 30px}.btn{padding:9px 10px}}
-
-@media print{body{background:#fff}.wrap{max-width:none;padding:0}.hero,.panel{box-shadow:none;break-inside:avoid}.tabs,.no-print,.btn,.remove{display:none!important}.panel{border:1px solid #ddd}.hidden{display:block!important}#plannerApp{display:none!important}#printView{display:block!important}.itinerary-day{break-inside:avoid}}
-
+:root {
+  --bg: #f8f5f0;
+  --paper: #fffdf9;
+  --ink: #51483f;
+  --muted: #8d8175;
+  --line: #e9dfd3;
+  --accent: #b49b80;
+  --soft: #f2eae0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+button, input, textarea, select { font: inherit; }
+.wrap { max-width: 860px; margin: auto; padding: 18px 14px 40px; }
+.hero {
+  background: linear-gradient(135deg,#eee2d4,#faf5ee);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+h1 { font-size: 1.4rem; margin: 5px 0; }
+h2 { font-size: 1.08rem; margin-top: 0; }
+.sub, .small { color: var(--muted); font-size: .85rem; }
+.nav { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 12px; }
+button {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 13px;
+  background: #fffaf4;
+  color: var(--ink);
+}
+.tab { white-space: nowrap; border-radius: 30px; }
+.tab.active, .primary { background: var(--ink); color: white; }
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.full { grid-column: 1 / -1; }
+label { font-size: .85rem; }
+input, textarea, select {
+  width: 100%;
+  border: 1px solid #ded2c5;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fffefa;
+  color: var(--ink);
+}
+textarea { min-height: 80px; }
+.btnrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.hidden { display: none !important; }
+.schedule-row {
+  display: grid;
+  grid-template-columns: 82px 1fr 30px;
+  gap: 7px;
+  margin: 10px 0;
+  padding: 10px;
+  background: #fcf8f2;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.schedule-row .memo { grid-column: 2 / 3; }
+.remove { border: 0; color: #a55e52; background: transparent; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.info { padding: 10px; background: #fcf8f2; border-radius: 10px; }
+.info b { display: block; font-size: .75rem; color: var(--muted); }
+.pill { display: inline-block; padding: 4px 9px; margin: 3px; background: var(--soft); border-radius: 20px; font-size: .8rem; }
+.preview-item { display: grid; grid-template-columns: 65px 1fr; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.time { color: #9c8064; font-weight: bold; }
+.memo-text { font-size: .85rem; color: var(--muted); white-space: pre-wrap; }
+.checkrow { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.checkrow input { width: auto; }
+.notice { padding: 12px; background: #f5eee5; border-radius: 10px; font-size: .85rem; }
+.sharebox { overflow-wrap: anywhere; font-size: .8rem; padding: 10px; background: #f5eee5; }
+@media(max-width:540px) {
+  .grid { grid-template-columns: 1fr; }
+  .full { grid-column: auto; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}
+@media print {
+  body { background: white; }
+  .hero, .nav, .no-print, #editor, #checklist, #budget, #sharePanel { display: none !important; }
+  #preview { display: block !important; }
+  .panel { border: 0; }
+}
 </style>
-
 </head>
-
 <body>
-
 <main class="wrap">
+<header class="hero">
+  <div class="small">FARAWAY DISNEY · TRAVEL NOTE</div>
+  <h1>わが家の 旅のしおり</h1>
+  <p class="sub">遠方組のための、やさしい旅行プランノート。</p>
+  <div id="status" class="small">この端末に自動保存します</div>
+</header>
 
-<header class="hero"><p class="eyebrow">FARAWAY DISNEY · TRAVEL PLANNER</p><h1 id="pageTitle">わが家のディズニー旅行ノート ✨</h1><p>遠方からの旅を、わが家らしいペースで少しずつ計画しよう。</p></header>
-
-<div id="plannerApp">
-
-<nav class="tabs no-print" id="mainTabs" aria-label="旅行ノートのメニュー">
-
-<button type="button" class="tab active" data-view="overview">♡ 旅行情報</button><button type="button" class="tab" data-view="days">📅 日程・時間割</button><button type="button" class="tab" data-view="hotel">🏨 ホテル</button><button type="button" class="tab" data-view="transport">🚃 移動</button><button type="button" class="tab" data-view="budget">💰 予算</button><button type="button" class="tab" data-view="tasks">✓ 準備リスト</button><button type="button" class="tab" data-view="settings">🎨 保存・設定</button>
-
+<nav class="nav no-print">
+  <button class="tab active" data-view="editor">✎ 旅行を入力</button>
+  <button class="tab" data-view="preview">♡ 完成したしおり</button>
+  <button class="tab" data-view="checklist">✓ 準備リスト</button>
+  <button class="tab" data-view="budget">￥ 予算・メモ</button>
+  <button class="tab" data-view="sharePanel">↗ 共有・保存</button>
 </nav>
 
-<section class="panel view" id="overview">
-
-<h2>旅行の基本情報</h2><div class="grid">
-
-<div class="field-wrap full"><label for="tripTitle">旅行タイトル</label><input class="field" id="tripTitle" placeholder="例：家族でクリスマスディズニー"></div>
-
-<div class="field-wrap"><label for="tripStyle">旅行スタイル</label><select class="field" id="tripStyle"><option>家族旅行</option><option>カップル旅行</option><option>友達との旅行</option><option>ひとり旅</option></select></div>
-
-<div class="field-wrap"><label for="people">参加人数</label><input class="field" id="people" placeholder="例：大人2人・子ども1人"></div>
-
-<div class="field-wrap"><label for="startDate">出発日</label><input class="field" id="startDate" type="date"></div>
-
-<div class="field-wrap"><label for="endDate">帰宅日</label><input class="field" id="endDate" type="date"></div>
-
-<div class="field-wrap full"><label for="tripMemo">旅行全体のメモ</label><textarea class="field" id="tripMemo" rows="3" placeholder="楽しみにしていること、気をつけたいことなど"></textarea></div>
-
-</div><p class="hint">入力内容はこのブラウザに自動保存されるよ。大切な計画は定期的にバックアップしてね。</p>
-
+<section id="editor" class="view">
+  <div class="panel">
+    <h2>旅行の基本情報</h2>
+    <div class="grid">
+      <div class="field full"><label>旅行タイトル</label><input id="title" placeholder="わが家のクリスマスディズニー"></div>
+      <div class="field"><label>行き先</label>
+        <select id="destination">
+          <option>東京ディズニーランド</option>
+          <option>東京ディズニーシー</option>
+          <option selected>ランド＆シー</option>
+          <option>その他・未定</option>
+        </select>
+      </div>
+      <div class="field"><label>出発日</label><input id="date" type="date"></div>
+      <div class="field"><label>日数</label>
+        <select id="nights"><option>日帰り</option><option selected>1泊2日</option><option>2泊3日</option><option>3泊4日</option></select>
+      </div>
+      <div class="field"><label>人数</label><input id="people" placeholder="大人2人・子ども1人"></div>
+      <div class="field"><label>ホテル</label><input id="hotel" placeholder="ホテル名"></div>
+      <div class="field"><label>交通手段</label><input id="transport" placeholder="飛行機・新幹線・車など"></div>
+      <div class="field full"><label>旅行のメモ</label><textarea id="overview" placeholder="予約や持ち物などのメモ"></textarea></div>
+    </div>
+    <div class="btnrow"><button class="primary" id="makePreview">♡ しおりを作る</button></div>
+  </div>
+  <div class="panel">
+    <h2>日ごとの時間割</h2>
+    <div id="scheduleList"></div>
+    <div class="btnrow">
+      <button id="addSchedule">＋ 予定を追加</button>
+      <button class="primary" id="makePreview2">完成したしおりを見る</button>
+    </div>
+  </div>
 </section>
 
-<section class="panel view hidden" id="days">
+<section id="preview" class="view hidden">
+  <div class="panel">
+    <div style="text-align:center;padding:18px 0;border-bottom:1px solid var(--line)">
+      <div class="small">OUR FAMILY TRIP</div>
+      <h2 id="pTitle">わが家の旅のしおり</h2>
+      <div id="pMeta"></div>
+    </div>
+    <div class="info-grid" id="pInfo"></div>
+    <p id="pOverview" class="notice hidden"></p>
+    <h2 style="margin-top:20px">旅の時間割</h2>
+    <div id="pSchedule"></div>
+    <div class="btnrow no-print">
+      <button class="primary" id="backToEdit">✎ 編集に戻る</button>
+      <button id="printBtn">PDF保存・印刷</button>
+    </div>
+  </div>
+</section>
 
-<div class="row" style="justify-content:space-between"><h2>日程・時間割</h2><button type="button" class="btn primary" id="addDay">＋ 日程を追加</button></div>
+<section id="checklist" class="view hidden">
+  <div class="panel">
+    <h2>旅行の準備リスト</h2>
+    <div id="checks"></div>
+    <div class="field" style="margin-top:12px">
+      <label>追加する項目</label>
+      <input id="newCheck" placeholder="モバイルバッテリー">
+    </div>
+    <div class="btnrow"><button class="primary" id="addCheck">＋ 項目を追加</button></div>
+  </div>
+</section>
 
-<div class="daytabs" id="dayTabs"></div>
+<section id="budget" class="view hidden">
+  <div class="panel">
+    <h2>予算・自由メモ</h2>
+    <div class="grid">
+      <div class="field"><label>予算の目安（円）</label><input id="budget" type="number" min="0" placeholder="150000"></div>
+      <div class="field"><label>費用メモ</label><input id="budgetNote" placeholder="交通・ホテル・チケット"></div>
+      <div class="field full"><label>自由メモ</label><textarea id="freeNote"></textarea></div>
+    </div>
+  </div>
+</section>
 
-<div class="grid">
+<section id="sharePanel" class="view hidden">
+  <div class="panel">
+    <h2>共有・バックアップ</h2>
+    <p class="small">共有リンクには、作成時点の旅行内容が含まれます。</p>
+    <div class="notice">この版では家族の編集内容は自動同期されません。予約番号などの個人情報は入れないでね。</div>
+    <div class="btnrow">
+      <button class="primary" id="createShare">共有リンクを作る</button>
+      <button id="copyShare">リンクをコピー</button>
+    </div>
+    <div id="shareLink" class="sharebox hidden"></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+    <h2>バックアップ</h2>
+    <div class="btnrow">
+      <button id="exportData">データを保存</button>
+      <label><input id="importData" type="file" accept="application/json,.json">バックアップを読み込む</label>
+    </div>
+  </div>
+</section>
+</main>
 
-<div class="field-wrap"><label for="dayName">タブ名</label><input class="field" id="dayName" placeholder="例：1日目"></div>
-
-<div class="field-wrap"><label for="dayDate">日付</label><input class="field" id="dayDate" type="date"></div>
-
-<div class="field-wrap full"><label for="dayPlace">この日の行き先</label><select class="field" id="dayPlace"><option>移動・ホテル</option><option>東京ディズニーランド</option><option>東京ディズニーシー</option><option>ランド＆シー</option><option>自由行動・その他</option></select></div>
-
-</div><div class="row" style="margin:10px 0 14px"><button type="button" class="btn ghost" id="renameDay">タブ名を反映</button><button type="button" class="btn danger" id="deleteDay">この日を削除</button></div>
+<script>
+(() => {
+'use strict';
+const KEY = 'farawayDisneyTravelNotebook_v1';
+const $ = id => document.getElementById(id);
+const fresh = () => ({
+  title:'わが家の旅のしおり',
+  destination:'ランド＆シー', date:'', nights:'1泊2日',
+  people:'大人2人・子ども1人', hotel:'', transport:'',
+  overview:'', budget:'', budgetNote:'', freeNote:'',
+  schedule:[
+    {time:'09:00',title:'パークに到着',memo:'まずは無理せず楽しもう'},
+    {time:'12:00',title:'ランチ・休憩',memo:''},
+    {time:'15:00',title:'おやつ・お買い物',memo:''}
+  ],
+  checks:[
+    {text:'チケットを確認する',done:false},
+    {text:'ホテル・交通の予約を確認する',done:false},
+    {text:'天気と服装を確認する',done:false},
+    {text:'モバイルバッテリーを準備する',done:false},
+    {text:'子どもの着替えを準備する',done:false}
+  ]
+});
+let data = fresh();
+let activeView = 'editor';
+const fields = ['title','destination','date','nights','people','hotel','transport','overview','budget','budgetNote','freeNote'];
+const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){
+  try {
+    localStorage.setItem(KEY,JSON.stringify(data));
+    $('status').textContent='✓ この端末に自動保存しました';
+  } catch(e) {
+    $('status').textContent='保存できません。バックアップを利用してください。';
+  }
+}
+function syncFields(){ fields.forEach(id=>$(id).value=data[id] ?? ''); }
+function load(){
+  try {
+    const raw=localStorage.getItem(KEY);
+    if(raw) data={...fresh(),...JSON.parse(raw)};
+  } catch(e) { data=fresh(); }
+  if(location.hash.startsWith('#trip=')){
+    try {
+      const shared=JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(6)))));
+      if(shared && Array.isArray(shared.schedule)){
+        data={...fresh(),...shared};
+        save();
+        history.replaceState(null,'',location.pathname+location.search);
+      }
+    } catch(e) {}
+  }
+}
+function showView(id){
+  activeView=id;
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('hidden',v.id!==id));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
+  if(id==='preview') renderPreview();
+  if(id==='checklist') renderChecks();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+fields.forEach(id=>$(id).addEventListener('input',()=>{
+  data[id]=$(id).value; save();
+  if(activeView==='preview') renderPreview();
+}));
+function renderSchedule(){
+  const root=$('scheduleList'); root.innerHTML='';
+  data.schedule.forEach((item,i)=>{
+    const row=document.createElement('div'); row.className='schedule-row';
+    row.innerHTML=`<input type="time" aria-label="時間" value="${esc(item.time)}" data-field="time">
+      <input aria-label="予定" placeholder="予定・場所" value="${esc(item.title)}" data-field="title">
+      <button class="remove" aria-label="削除">×</button>
+      <input class="memo" aria-label="メモ" placeholder="ひとことメモ" value="${esc(item.memo)}" data-field="memo">`;
+    row.querySelectorAll('[data-field]').forEach(el=>el.addEventListener('input',()=>{
+      item[el.dataset.field]=el.value; save();
+    }));
+    row.querySelector('.remove').onclick=()=>{
+      if(confirm('この予定を削除する？')){data.schedule.splice(i,1);renderSchedule();save();}
+    };
+    root.appendChild(row);
+  });
+}
+function renderPreview(){
+  $('pTitle').textContent=data.title||'わが家の旅のしおり';
+  $('pMeta').innerHTML=[data.date,data.nights,data.destination].filter(Boolean).map(x=>`<span class="pill">${esc(x)}</span>`).join('');
+  const info=[['人数',data.people],['ホテル',data.hotel],['交通',data.transport],['予算',data.budget?Number(data.budget).toLocaleString()+'円':'']];
+  $('pInfo').innerHTML=info.filter(x=>x[1]).map(([k,v])=>`<div class="info"><b>${esc(k)}</b>${esc(v)}</div>`).join('');
+  $('pOverview').textContent=data.overview||'';
+  $('pOverview').classList.toggle('hidden',!data.overview);
+  $('pSchedule').innerHTML=data.schedule.length?data.schedule.map(item=>`<div class="preview-item"><div class="time">${esc(item.time||'—')}</div><div><b>${esc(item.title||'予定未入力')}</b>${item.memo?`<div class="memo-text">${esc(item.memo)}</div>`:''}</div></div>`).join(''):'<p class="small">予定がありません。編集に戻って追加できます。</p>';
+}
+function renderChecks(){
+  const root=$('checks'); root.innerHTML='';
+  data.checks.forEach((item,i)=>{
+    const row=document.createElement('label'); row.className='checkrow';
+    row.innerHTML=`<input type="checkbox" ${item.done?'checked':''}><span>${esc(item.text)}</span><button type="button" class="remove">×</button>`;
+    row.querySelector('input').onchange=e=>{item.done=e.target.checked;save();renderChecks();};
+    row.querySelector('button').onclick=e=>{
+      e.preventDefault();
+      if(confirm('この項目を削除する？')){data.checks.splice(i,1);renderChecks();save();}
+    };
+    root.appendChild(row);
+  });
+}
+const makePreview=()=>showView('preview');
+$('makePreview').onclick=makePreview;
+$('makePreview2').onclick=makePreview;
+$('backToEdit').onclick=()=>showView('editor');
+$('printBtn').onclick=()=>window.print();
+$('addSchedule').onclick=()=>{data.schedule.push({time:'',title:'',memo:''});renderSchedule();save();};
+$('addCheck').onclick=()=>{
+  const text=$('newCheck').value.trim(); if(!text)return;
+  data.checks.push({text,done:false});$('newCheck').value='';renderChecks();save();
+};
+$('newCheck').addEventListener('keydown',e=>{if(e.key==='Enter')$('addCheck').click();});
+function createShare(){
+  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  const url=location.href.split('#')[0]+'#trip='+encoded;
+  $('shareLink').textContent=url;$('shareLink').classList.remove('hidden');
+  if(navigator.clipboard) navigator.clipboard.writeText(url).catch(()=>{});
+}
+$('createShare').onclick=createShare;
+$('copyShare').onclick=async()=>{
+  const link=$('shareLink').textContent;
+  if(!link){createShare();return;}
+  try{await navigator.clipboard.writeText(link);$('status').textContent='リンクをコピーしました';}
+  catch(e){$('status').textContent='リンクを長押ししてコピーしてね';}
+};
+$('exportData').onclick=()=>{
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');
+  a.href=url;a.download='disney-travel-notebook-backup.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+$('importData').onchange=async e=>{
+  const f=e.target.files[0];if(!f)return;
+  try{
+    const parsed=JSON.parse(await f.text());
+    if(!Array.isArray(parsed.schedule)||!Array.isArray(parsed.checks))throw Error();
+    if(!confirm('今の内容をバックアップの内容で置き換える？'))return;
+    data={...fresh(),...parsed};syncFields();renderSchedule();renderChecks();renderPreview();save();
+  }catch(err){alert('旅行ノートのJSONバックアップを選んでね');}
+  finally{e.target.value='';}
+};
+load();syncFields();renderSchedule();renderChecks();renderPreview();
+})();
+</script>
+</body>
+</html>
